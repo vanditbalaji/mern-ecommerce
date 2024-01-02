@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
+  }
+}
+
+.horizontal-timeline .items {
+  border-top: 2px solid #ddd;
+}
+
+.horizontal-timeline .items .items-list {
+  position: relative;
+  margin-right: 0;
+}
+
+.horizontal-timeline .items .items-list:before {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #ddd;
+  top: 0;
+  margin-top: -5px;
+}
+
+.horizontal-timeline .items .items-list {
+  padding-top: 15px;
+}
+
+.border-color-custom {
+  border-color: #f37a27 !important;
+}
+
+.trannsaction-popup::-webkit-scrollbar {
+  display: none;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+.apply-button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: -5.1rem;
+  margin-bottom: 9px;
+}
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em;
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210619/pngtree-colorful-watercolor-splash-company-profile-image_730901.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel {
+  width: 100%;
+  height: 400px;
+  object-fit: fill;
+}
+.cartImage {
+  margin-left: 32.5%;
+  margin-top: 5%;
+}
+.wishListImage {
+  margin-left: 32.5%;
+  margin-top: 20%;
+}
+
+@media screen and (max-width: 679px) {
+  .couponInput {
+    width: 280px;
+  }
+  .apply-button {
+    height: 40px;
+    display: flex;
+    margin-left: -5.2rem;
+    text-align: center;
+    align-items: center;
+  }
+  .profile-container {
+    background-image: none;
+  }
+  .carousel {
+    height: 180px;
+  }
+  .cartImage {
+    margin-left: 7%;
+  }
+  .wishListImage {
+    margin-left: 0%;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

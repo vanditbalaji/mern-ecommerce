@@ -1,0 +1,159 @@
+.order-container {
+  margin-top: 10px;
+  margin-left: 325px;
+  min-width: 300px;
+  max-width: 70%;
+  display: flex;
+}
+.order-card {
+  background-color: #e3e0da;
+}
+.order-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-id {
+  color: #651fff;
+  font-size: 15px;
+}
+
+.order-details h5 {
+  margin-top: 5px;
+}
+.date {
+  margin-bottom: 15px;
+}
+
+.order-tracking-container {
+  background-color: #eceff1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-width: 50%;
+  margin-left: 0%;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-id-bold {
+  color: #651fff;
+  font-weight: bold;
+}
+
+.usps-info {
+  text-align: right;
+}
+
+.progress-bar {
+  margin: 30px 0;
+}
+
+.step-list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.step-list li {
+  list-style-type: none;
+  font-size: 13px;
+  width: 25%;
+  float: left;
+  position: relative;
+  font-weight: 400;
+  cursor: pointer;
+  transition: width 0.5s;
+}
+
+.icon-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+
+.step-label {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.progress-bar-container {
+  background-color: #c5cae9;
+  height: 12px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  background-color: #651fff;
+  height: 100%;
+  position: absolute;
+  transition: width 0.5s;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%, 0% 50%);
+  border-radius: 0 10px 10px 0;
+}
+
+@media only screen and (max-width: 680px) {
+  .order-container {
+    min-width: 375px;
+    margin-left: 0px;
+  }
+  .order-id-tracking {
+    color: #651fff;
+    font-size: 10px;
+  }
+  .order-id{
+    font-size: 10px;
+  }
+  .order-details {
+    display: block;
+  }
+  .total {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .totals {
+    max-width: 20px;
+    margin-top: 10px;
+  }
+  .button {
+    margin-top: 140px;
+    margin-left: -20px;
+    min-width: 100px;
+  }
+  .payment {
+    min-width: 30px;
+  }
+  .order-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+  }
+  .usps-info {
+    margin-right: 40px;
+  }
+
+  .order-id {
+    color: #651fff;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .order-tracking-container {
+    margin-top: -100px;
+  }
+}
