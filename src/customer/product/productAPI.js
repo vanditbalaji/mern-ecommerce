@@ -2,7 +2,7 @@ import axios from "axios";
 
 const fetchAllProducts = async () => {
   try {
-    const response = await fetch("http://localhost:8080/products");
+    const response = await fetch("https://e-zpb7.onrender.com/products");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -13,7 +13,7 @@ const fetchAllProducts = async () => {
 
 const fetchAllUserProducts = async () => {
   try {
-    const response = await fetch("http://localhost:8080/products/users");
+    const response = await fetch("https://e-zpb7.onrender.com/products/users");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -44,7 +44,7 @@ const fetchFilterProducts = async (data) => {
     .filter(Boolean)
     .join("&");
 
-  const url = `http://localhost:8080/products${
+  const url = `https://e-zpb7.onrender.com/products${
     queryString ? `?${queryString}` : ""
   }`;
   try {
@@ -59,7 +59,7 @@ const fetchFilterProducts = async (data) => {
 
 const fetchFilterBrand = async () => {
   try {
-    const response = await fetch("http://localhost:8080/brand");
+    const response = await fetch("https://e-zpb7.onrender.com/brand");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -70,7 +70,7 @@ const fetchFilterBrand = async () => {
 
 const fetchFilterGender = async () => {
   try {
-    const response = await fetch("http://localhost:8080/gender");
+    const response = await fetch("https://e-zpb7.onrender.com/gender");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -81,7 +81,7 @@ const fetchFilterGender = async () => {
 
 const fetchById = async (id) => {
   try {
-    const response = await fetch("http://localhost:8080/products/" + id);
+    const response = await fetch("https://e-zpb7.onrender.com/products/" + id);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -92,7 +92,7 @@ const fetchById = async (id) => {
 
 const fetchFilterCategory = async () => {
   try {
-    const response = await fetch("http://localhost:8080/category");
+    const response = await fetch("https://e-zpb7.onrender.com/category");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -103,7 +103,10 @@ const fetchFilterCategory = async () => {
 
 const addProducts = async (data) => {
   try {
-    const response = await axios.post("http://localhost:8080/products", data);
+    const response = await axios.post(
+      "https://e-zpb7.onrender.com/products",
+      data
+    );
     return response.data; // Axios automatically parses response data
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -114,7 +117,7 @@ const addProducts = async (data) => {
 const updateProduct = async (data) => {
   try {
     const response = await axios.put(
-      "http://localhost:8080/products/" + data.id,
+      "https://e-zpb7.onrender.com/products/" + data.id,
       data
     );
     return response.data;
@@ -127,7 +130,7 @@ const updateProduct = async (data) => {
 const addFilters = async (data) => {
   try {
     const response = await axios.put(
-      "http://localhost:8080/products/filter/filters",
+      "https://e-zpb7.onrender.com/products/filter/filters",
       data
     );
     return response.data;

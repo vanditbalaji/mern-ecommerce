@@ -5,9 +5,9 @@ import { deleteUserCartAsync, updateUserCartAsync } from "./orderSlice";
 
 const Cart = () => {
   const [open, setOpen] = useState(true);
-  
+
   const dispatch = useDispatch();
-  
+
   const products = useSelector((state) => state?.cart?.items);
 
   const total = products.reduce((acc, item) => {
@@ -15,22 +15,22 @@ const Cart = () => {
       acc + Discount(item?.price, item?.discountPercentage) * item?.quantity
     );
   }, 0);
-  
+
   const totalItem = products.reduce((acc, item) => {
     return acc + item?.quantity;
   }, 0);
-  
+
   const handleRemove = (e, id) => {
     e.preventDefault();
     dispatch(deleteUserCartAsync(id));
   };
-  
+
   const handleQuantity = (e, product) => {
     e.preventDefault();
     const qty = e.target.value;
     dispatch(updateUserCartAsync({ ...product, quantity: +qty }));
   };
-  
+
   return (
     <>
       <div className="px-4 mx-auto mt-10 max-w-7xl sm:px-6 lg:px-8">
@@ -114,7 +114,7 @@ const Cart = () => {
           <div className="mt-6">
             <Link
               to="/checkout"
-              className="flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-stone-800 hover:bg-green-500 hover:bg-indigo-700"
+              className="flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-stone-800 hover:bg-indigo-700"
             >
               Checkout
             </Link>

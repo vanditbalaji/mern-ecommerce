@@ -23,6 +23,8 @@ const UsersOrder = () => {
 
   UserAuthentication();
 
+  console.log(orders);
+
   const cancelOrder = (orderId, discount) => {
     setOrderId(orderId);
     setDiscount(discount);
@@ -180,24 +182,31 @@ const UsersOrder = () => {
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p className="totals">Delivery Fees</p>
                         <p className="total">
-                          {orderTotal(order) < 600 ? "₹ 110" : "0"}
+                          ₹ {order?.deliveryFees ? order.deliveryFees : 0}
                         </p>
                       </div>
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p className="totals">Discount</p>
                         <p className="total">
-                          - ₹{" "}
-                          {orderTotal(order) < 600
+                          ₹{" "}
+                          {Math.round(
+                            order.Total > 600
+                              ? order?.Total - order?.discountedTotal
+                              : 0
+                          )}
+                          {/* {orderTotal(order) < 600
                             ? parseInt(orderTotal(order) - order.total + 110)
                             : ""}
                           {orderTotal(order) > 600
                             ? parseInt(orderTotal(order) - order.total)
-                            : ""}
+                            : ""} */}
                         </p>
                       </div>
                       <div className="flex justify-between mt-4 text-base font-medium text-gray-900">
                         <p className="totals">Total Amount</p>
-                        <p className="font-bold total">₹ {order.total}</p>
+                        <p className="font-bold total">
+                          ₹ {order.discountedTotal}
+                        </p>
                       </div>
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p className="totals">Total Items</p>

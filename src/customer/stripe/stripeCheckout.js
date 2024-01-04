@@ -18,7 +18,7 @@ const StripeCheckout = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("http://localhost:8080/create-payment-intent", {
+    fetch("https://e-zpb7.onrender.com/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: data }),

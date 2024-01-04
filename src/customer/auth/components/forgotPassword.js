@@ -16,7 +16,7 @@ const ForgotPassword = () => {
   } = useForm();
 
   const dispatch = useDispatch();
-  
+
   const onSubmit = (data) => {
     dispatch(resetPasswordRequestAsync(data.email));
     dispatch(resetError());
@@ -73,7 +73,7 @@ const ForgotPassword = () => {
               {" "}
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-stone-800  hover:bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-stone-800  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Send Email
               </button>

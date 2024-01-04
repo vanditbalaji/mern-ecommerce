@@ -103,7 +103,11 @@ const CheckOut = () => {
   const filtered = data.filter((item) =>
     productss.map((abc) => abc.productID).includes(item.id)
   );
+  const qData = data.filter((item) =>
+    products.some((product) => product?.productID?.includes(item.id))
+  );
 
+  const quantityData = qData.reverse();
   const updatedArray = filtered.map((item) => {
     const matchingItem = productss.find((fItem) => fItem.productID === item.id);
 
@@ -174,6 +178,9 @@ const CheckOut = () => {
         if (appliedCouponCode) {
           discountedTotal =
             Total - (Total * appliedCouponCode.percentage) / 100;
+        }
+        if (!appliedCouponCode) {
+          discountedTotal = Total;
         }
         if (appliedCouponCode) {
           disocuntAmount = Total - discountedTotal;
@@ -275,8 +282,8 @@ const CheckOut = () => {
               onSubmit={handleSubmit(onSubmit)}
             >
               <div className="m-5 space-y-6">
-                <h2 className="text-base font-semibold leading-7 text-gray-900">
-                  Address Information
+                <h2 className="py-5 text-xl font-extrabold text-gray-800">
+                  Address Info
                 </h2>
 
                 <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -447,7 +454,7 @@ const CheckOut = () => {
                   </button>
                   <button
                     type="submit"
-                    className="px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-stone-800 hover:bg-green-500 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-stone-800 hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Save
                   </button>
@@ -521,7 +528,7 @@ const CheckOut = () => {
                             Wallet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                             &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                             &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Available Balance{" "}
-                            <b>₹ {user.wallet}</b>
+                            <b>₹ {user?.wallet}</b>
                           </label>
                         </div>
                         <div className="flex items-center gap-x-3">
@@ -557,7 +564,7 @@ const CheckOut = () => {
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
                     {products &&
-                      products.map((product) => (
+                      products.map((product, index) => (
                         <li key={product?.id} className="flex py-6">
                           <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                             <img
@@ -584,18 +591,37 @@ const CheckOut = () => {
                             <div className="flex items-end justify-between flex-1 text-sm">
                               <p className="text-gray-500">
                                 Qty
-                                <select
-                                  className="border-none"
-                                  onChange={(e) => handleQuantity(e, product)}
-                                  value={product?.quantity}
-                                >
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                </select>
+                                {quantityData[index]?.size[product?.size] >=
+                                5 ? (
+                                  <select
+                                    className="border-none focus:ring-black"
+                                    onChange={(e) => handleQuantity(e, product)}
+                                    value={product?.quantity}
+                                  >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                  </select>
+                                ) : (
+                                  <select
+                                    className="border-none"
+                                    onChange={(e) => handleQuantity(e, product)}
+                                    value={product?.quantity}
+                                  >
+                                    {Array.from({
+                                      length:
+                                        quantityData[index]?.size[
+                                          product?.size
+                                        ] || 0,
+                                    }).map((_, index) => (
+                                      <option key={index + 1} value={index + 1}>
+                                        {index + 1}
+                                      </option>
+                                    ))}
+                                  </select>
+                                )}
                               </p>
 
                               <div className="flex">
@@ -678,7 +704,7 @@ const CheckOut = () => {
                 <div className="mt-6">
                   <div
                     onClick={handleOrder}
-                    className="flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm cursor-pointer bg-stone-800"
+                    className="flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm cursor-pointer bg-stone-800 hover:bg-stone-700 "
                   >
                     Order Now
                   </div>

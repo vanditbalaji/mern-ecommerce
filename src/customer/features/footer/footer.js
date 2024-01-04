@@ -1,5 +1,4 @@
-import { Grid, Typography, Button, IconButton } from "@mui/material";
-import { Facebook, Twitter, LinkedIn } from "@mui/icons-material";
+import { Grid, Typography, Button } from "@mui/material";
 import React from "react";
 
 const Footer = () => {
@@ -11,19 +10,7 @@ const Footer = () => {
         sx={{ bgcolor: "black", color: "white", py: 3 }}
       >
         <Grid item xs={12} sm={6} md={3}>
-          <div>
-            <IconButton color="primary">
-              <Facebook />
-            </IconButton>
-            <IconButton color="primary">
-              <Twitter />
-            </IconButton>
-            <IconButton color="primary">
-              <LinkedIn />
-            </IconButton>
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+          {/* Solution Section */}
           <Typography className="pb-5" variant="h6">
             Solution
           </Typography>
@@ -39,6 +26,7 @@ const Footer = () => {
           </div>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
+          {/* Documentation Section */}
           <Typography className="pb-5" variant="h6">
             Documentation
           </Typography>
@@ -54,6 +42,7 @@ const Footer = () => {
           </div>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
+          {/* Legal Section */}
           <Typography className="pb-5" variant="h6">
             Legal
           </Typography>
@@ -68,10 +57,30 @@ const Footer = () => {
             </Button>
           </div>
           <div>
-            <Button className="pb-5" variant="h6">
-              Terms
-            </Button>
+            <Button className="pb-5" variant="h6"></Button>
           </div>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          {/* Headquarters Section */}
+          <Typography className="pb-3" variant="h6">
+            Headquarters
+          </Typography>
+          <div>
+            <Button className="pb-5" variant="h6"></Button>
+          </div>
+          <Typography className="pb-3" variant="body2" color="silver">
+            Office Address: Shivalik-8 Rajkot
+          </Typography>
+          <Typography variant="body2" color="silver">
+            Phone: +91 96647-99190
+          </Typography>
+        </Grid>
+
+        {/* Centered All Rights Reserved */}
+        <Grid item xs={12}>
+          <Typography variant="body2" color="grey">
+            &copy; 2024 PST STORE. All Rights Reserved.
+          </Typography>
         </Grid>
       </Grid>
     </div>

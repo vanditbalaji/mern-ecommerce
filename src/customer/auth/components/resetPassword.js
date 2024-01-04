@@ -2,17 +2,14 @@ import React from "react";
 import img from "../../assets/pst.jpeg";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  resetPasswordAsync,
-} from "../userSlice";
+import { resetPasswordAsync } from "../userSlice";
 import { Link, useLocation } from "react-router-dom";
 
 const ResetPassword = () => {
-
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
-  
+
   const email = queryParams.get("email");
   const token = queryParams.get("token");
 
@@ -25,7 +22,13 @@ const ResetPassword = () => {
   const dispatch = useDispatch();
   const resetPassword = useSelector((state) => state.user.passwordReset);
   const onSubmit = (data) => {
-    dispatch(resetPasswordAsync({email:email,token:token,password:data.password}));
+    dispatch(
+      resetPasswordAsync({
+        email: email,
+        token: token,
+        password: data.password,
+      })
+    );
   };
 
   return (
@@ -98,7 +101,7 @@ const ResetPassword = () => {
                 <p className="text-red-500">
                   {errors.confirmPassword?.message}
                 </p>
-                {resetPassword&& (
+                {resetPassword && (
                   <p className="text-green-500">Password Reset Successfully</p>
                 )}
               </div>
@@ -108,7 +111,7 @@ const ResetPassword = () => {
               {" "}
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-stone-800  hover:bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-stone-800  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Reset Password
               </button>

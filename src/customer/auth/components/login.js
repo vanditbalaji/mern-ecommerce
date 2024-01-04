@@ -78,9 +78,10 @@ const Login = () => {
                   />
                   <p className="text-red-500">{errors?.email?.message}</p>
 
-                  {userError?.message === "Invalid email" && (
-                    <p className="text-red-500">{userError?.message}</p>
-                  )}
+                  {userError?.message === "Invalid email" &&
+                    !errors.email?.message && (
+                      <p className="text-red-500">{userError?.message}</p>
+                    )}
                 </div>
               </div>
 
@@ -121,9 +122,10 @@ const Login = () => {
                     className="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                   <p className="text-red-500">{errors.password?.message}</p>
-                  {userError?.message === "Incorrect password" && (
-                    <p className="text-red-500">{userError?.message}</p>
-                  )}
+                  {userError?.message === "Incorrect password" &&
+                    !errors.password?.message && (
+                      <p className="text-red-500">{userError?.message}</p>
+                    )}
                 </div>
               </div>
 
@@ -131,7 +133,7 @@ const Login = () => {
                 {" "}
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-stone-800  hover:bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-stone-800  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign in
                 </button>

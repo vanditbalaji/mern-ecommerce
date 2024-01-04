@@ -9,6 +9,7 @@ import HomePageLoader from "../loaders/homePageLoader";
 const VerificationPage = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  
   const token = new URLSearchParams(location.search).get("token");
   const verification = useSelector((state) => state.user?.userVerification);
   const user = useSelector((state) => state.user?.user);

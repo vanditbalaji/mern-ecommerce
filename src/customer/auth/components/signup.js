@@ -1,10 +1,7 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import img from "../../assets/pst.jpeg";
 import { useForm } from "react-hook-form";
-import {
-  resetVerified,
-  userVerificationAsync,
-} from "../userSlice";
+import { resetVerified, userVerificationAsync } from "../userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -15,12 +12,12 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+
   let userError = useSelector((state) => state.user.error);
   let verified = useSelector((state) => state.user.mailSent);
 
   const dispatch = useDispatch();
-  
+
   const onSubmit = (data) => {
     dispatch(userVerificationAsync({ ...data, address: [], role: "user" }));
   };
@@ -31,7 +28,7 @@ const Signup = () => {
       dispatch(resetVerified());
     }
   }, [verified, dispatch, navigate]);
-  
+
   return (
     <div>
       <div className="block min-h-full px-6 py-12 cont lg:px-8">
@@ -154,7 +151,7 @@ const Signup = () => {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-stone-800  hover:bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-stone-800  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign UP
               </button>

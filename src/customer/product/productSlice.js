@@ -12,7 +12,7 @@ import {
   updateProduct,
 } from "./productAPI";
 
-const API_URL = "http://localhost:8080/products";
+const API_URL = "https://e-zpb7.onrender.com/products";
 
 const initialState = {
   products: [],

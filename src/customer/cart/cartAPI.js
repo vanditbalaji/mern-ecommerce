@@ -2,7 +2,7 @@ import axios from "axios";
 
 const addToCart = async (data) => {
   try {
-    const response = await axios.put("http://localhost:8080/cart", data);
+    const response = await axios.put("https://e-zpb7.onrender.com/cart", data);
     return response.data;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -12,7 +12,9 @@ const addToCart = async (data) => {
 
 const fetchUserCart = async (id) => {
   try {
-    const response = await axios.get("http://localhost:8080/cart?userid=" + id);
+    const response = await axios.get(
+      "https://e-zpb7.onrender.com/cart?userid=" + id
+    );
     return response.data;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -23,7 +25,7 @@ const fetchUserCart = async (id) => {
 const updateUserCart = async (data) => {
   try {
     const response = await axios.put(
-      "http://localhost:8080/cart/" + data.productID,
+      "https://e-zpb7.onrender.com/cart/" + data.productID,
       data
     );
     return response.data;
@@ -35,7 +37,9 @@ const updateUserCart = async (data) => {
 
 const deleteUserCart = async (userid) => {
   try {
-    const response = await axios.delete(`http://localhost:8080/cart/${userid}`);
+    const response = await axios.delete(
+      `https://e-zpb7.onrender.com/cart/${userid}`
+    );
     return { id: userid };
   } catch (error) {
     console.error("Error deleting user cart:", error);

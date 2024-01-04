@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { addMoneyAsync } from "../auth/userSlice";
 
 const CheckOutFormPayment = ({ data }) => {
-  
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,11 +18,11 @@ const CheckOutFormPayment = ({ data }) => {
     if (!stripe) {
       return;
     }
-    
+
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
-    
+
     if (!clientSecret) {
       return;
     }
@@ -45,7 +44,7 @@ const CheckOutFormPayment = ({ data }) => {
       }
     });
   }, [stripe]);
-  
+
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
@@ -59,7 +58,7 @@ const CheckOutFormPayment = ({ data }) => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/payment-success",
+        return_url: "https://pststore.netlify.app/payment-success",
       },
     });
     if (error.type === "card_error" || error.type === "validation_error") {

@@ -39,6 +39,7 @@ import PaymentSuccessPage from "./customer/pages/paymentSuccess";
 import StripeCheckoutPayment from "./customer/stripe/stripeCheckoutPayment";
 import Chat from "./customer/chat/components/chat";
 import { ToastContainer } from "react-toastify";
+import ProtectedAdmin from "./customer/auth/components/protectedAdmin";
 ReactDOM.render(
   <Provider store={Store}>
     <Router>
@@ -56,12 +57,54 @@ ReactDOM.render(
             }
           />
           <Route path="/verification" element={<VerificationMessage />} />
-          <Route path="/admin" element={<AdminProduct />} />
-          <Route path="/adminOrder" element={<AdminOrder />} />
-          <Route path="/admin/:id" element={<AdminProductDetail />} />
-          <Route path="/admin/adminForm" element={<AdminForm />} />
-          <Route path="/admin/:id/adminForm" element={<AdminForm />} />
-          <Route path="/auth/verify" element={<VerificationPage />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedAdmin>
+                <AdminProduct />
+              </ProtectedAdmin>
+            }
+          />
+          <Route
+            path="/adminOrder"
+            element={
+              <ProtectedAdmin>
+                <AdminOrder />
+              </ProtectedAdmin>
+            }
+          />
+          <Route
+            path="/admin/:id"
+            element={
+              <ProtectedAdmin>
+                <AdminProductDetail />
+              </ProtectedAdmin>
+            }
+          />
+          <Route
+            path="/admin/adminForm"
+            element={
+              <ProtectedAdmin>
+                <AdminForm />
+              </ProtectedAdmin>
+            }
+          />
+          <Route
+            path="/admin/:id/adminForm"
+            element={
+              <Protected>
+                <AdminForm />
+              </Protected>
+            }
+          />
+          <Route
+            path="/auth/verify"
+            element={
+              <Protected>
+                <VerificationPage />
+              </Protected>
+            }
+          />
           <Route
             path="/store"
             element={
@@ -123,12 +166,33 @@ ReactDOM.render(
               </Protected>
             }
           />
-          <Route path="/updateAddress" element={<UpdateAddress />} />
+          <Route
+            path="/updateAddress"
+            element={
+              <Protected>
+                <UpdateAddress />
+              </Protected>
+            }
+          />
           <Route path="/logout" element={<Logout />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/check" element={<PaymentCheck />} />
-          <Route path="/payment-stripe" element={<StripeCheckoutPayment />} />
-          <Route path="/order-stripe" element={<StripeCheckout />} />
+          <Route
+            path="/payment-stripe"
+            element={
+              <Protected>
+                <StripeCheckoutPayment />
+              </Protected>
+            }
+          />
+          <Route
+            path="/order-stripe"
+            element={
+              <Protected>
+                <StripeCheckout />
+              </Protected>
+            }
+          />
           <Route path="/ordert" element={<OrderTracking />} />
           <Route
             path="/wishList"

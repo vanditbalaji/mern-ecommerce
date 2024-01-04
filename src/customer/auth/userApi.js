@@ -4,7 +4,7 @@ const userSignupData = async (user) => {
   const userData = user;
   try {
     const response = await axios.post(
-      "http://localhost:8080/auth/signup",
+      "https://e-zpb7.onrender.com/auth/signup",
       userData
     );
     return response.data;
@@ -16,7 +16,10 @@ const userSignupData = async (user) => {
 
 const userLoginData = async (data) => {
   try {
-    const response = await axios.post("http://localhost:8080/auth/login", data);
+    const response = await axios.post(
+      "https://e-zpb7.onrender.com/auth/login",
+      data
+    );
     return response.data;
   } catch (error) {
     throw error.response.data.error;
@@ -26,7 +29,7 @@ const userLoginData = async (data) => {
 const resetPassword = async (data) => {
   try {
     const response = await axios.post(
-      "http://localhost:8080/auth/resetPassword",
+      "https://e-zpb7.onrender.com/auth/resetPassword",
       data
     );
     return response.data;
@@ -39,7 +42,7 @@ const resetPasswordRequest = async (data) => {
   const dataSend = { to: data };
   try {
     const response = await axios.post(
-      "http://localhost:8080/auth/resetPasswordRequest",
+      "https://e-zpb7.onrender.com/auth/resetPasswordRequest",
       dataSend
     );
 
@@ -62,7 +65,7 @@ const userVerification = async (user) => {
   const userData = user;
   try {
     const response = await axios.post(
-      "http://localhost:8080/auth/verify",
+      "https://e-zpb7.onrender.com/auth/verify",
       userData
     );
     return response.data;
@@ -76,7 +79,7 @@ const userVerificationComplete = async (user) => {
   const userData = user;
   try {
     const response = await axios.post(
-      "http://localhost:8080/auth/verified",
+      "https://e-zpb7.onrender.com/auth/verified?token=",
       userData
     );
     return response.data;
@@ -89,7 +92,7 @@ const userVerificationComplete = async (user) => {
 const addMoney = async (data) => {
   try {
     const response = await axios.put(
-      "http://localhost:8080/auth/addMoney",
+      "https://e-zpb7.onrender.com/auth/addMoney",
       data
     );
 

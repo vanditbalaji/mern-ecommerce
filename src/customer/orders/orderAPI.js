@@ -2,7 +2,10 @@ import axios from "axios";
 
 const addOrder = async (data) => {
   try {
-    const response = await axios.post("http://localhost:8080/orders", data);
+    const response = await axios.post(
+      "https://e-zpb7.onrender.com/orders",
+      data
+    );
     return response.data;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -12,7 +15,7 @@ const addOrder = async (data) => {
 const orderMail = async (data) => {
   try {
     const response = await axios.post(
-      "http://localhost:8080/orders/orderMail",
+      "https://e-zpb7.onrender.com/orders/orderMail",
       data
     );
     return response.data;
@@ -24,7 +27,7 @@ const orderMail = async (data) => {
 
 const fetchAllOrders = async () => {
   try {
-    const response = await fetch("http://localhost:8080/orders");
+    const response = await fetch("https://e-zpb7.onrender.com/orders");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -36,7 +39,7 @@ const fetchAllOrders = async () => {
 const updateOrder = async (data) => {
   try {
     const response = await axios.put(
-      "http://localhost:8080/orders/" + data.id,
+      "https://e-zpb7.onrender.com/orders/" + data.id,
       data
     );
     return response.data;
@@ -49,7 +52,7 @@ const updateOrder = async (data) => {
 const cancelOrder = async (data) => {
   try {
     const response = await axios.put(
-      "http://localhost:8080/orders/cancel/order",
+      "https://e-zpb7.onrender.com/orders/cancel/order",
       data
     );
     return response.data;
@@ -62,7 +65,7 @@ const cancelOrder = async (data) => {
 const returnOrder = async (data) => {
   try {
     const response = await axios.put(
-      "http://localhost:8080/orders/return/order",
+      "https://e-zpb7.onrender.com/orders/return/order",
       data
     );
     return response.data;

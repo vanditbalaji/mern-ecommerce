@@ -161,8 +161,8 @@ const avatarStyle = {
 const userNavigation = [
   { name: "Your Profile", href: "/profile" },
   { name: "My Orders", href: "/order" },
+  // { name: "Support", href: "/chat" },
   { name: "Sign out", href: "/logout" },
-  { name: "Chat", href: "/chat" },
 ];
 
 const adminNavigation = [
@@ -614,10 +614,10 @@ const Navigation = () => {
                 {user?.email && user?.role === "user" && (
                   <Menu as="div" className="relative ml-3">
                     <div>
-                      <Menu.Button className="relative flex items-center max-w-xs bg-gray-800 rounded-full tl-2ext-sm m focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <Menu.Button className="relative flex items-center max-w-xs bg-gray-800 rounded-full hover:bg-stone-700 tl-2ext-sm m focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
-                        <div className="avtar" style={avatarStyle}>
+                        <div className="avtar " style={avatarStyle}>
                           {name}
                         </div>
                       </Menu.Button>

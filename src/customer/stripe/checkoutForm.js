@@ -6,7 +6,6 @@ import {
 } from "@stripe/react-stripe-js";
 
 const CheckOutForm = () => {
-  
   const stripe = useStripe();
   const elements = useElements();
 
@@ -56,7 +55,7 @@ const CheckOutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/order-success",
+        return_url: "https://pststore.netlify.app/order-success",
       },
     });
     if (error.type === "card_error" || error.type === "validation_error") {
@@ -85,4 +84,4 @@ const CheckOutForm = () => {
   );
 };
 
-export default CheckOutForm
+export default CheckOutForm;

@@ -11,7 +11,7 @@ const OrdreSuccessPage = () => {
   const user = useSelector((state) => state.user?.loggedinUser);
 
   UserAuthentication();
-  
+
   useEffect(() => {
     if (user) {
       dispatch(fetchUserCartAsync(user?.id));
@@ -23,14 +23,14 @@ const OrdreSuccessPage = () => {
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
-    }, 1000); 
+    }, 1000);
 
     return () => clearTimeout(loadingTimeout);
   }, []);
-  
+
   return (
     <>
-      {loading? (
+      {loading ? (
         <LoadingCircle />
       ) : (
         <main className="grid min-h-full px-6 py-24 bg-white place-items-center sm:py-32 lg:px-8">
@@ -48,7 +48,7 @@ const OrdreSuccessPage = () => {
             <div className="flex items-center justify-center mt-10 gap-x-6">
               <Link
                 to="/"
-                className="rounded-md bg-stone-800  hover:bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-stone-800  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Go back home
               </Link>

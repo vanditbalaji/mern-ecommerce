@@ -12,10 +12,9 @@ const WalletModal = ({ isOpen, onClose, id }) => {
 
   useEffect(() => {
     if (isOpen) {
-      // When the modal is open, disable body scrolling
       document.body.style.overflow = "hidden";
     } else {
-      // When the modal is closed, enable body scrolling
+   
       document.body.style.overflow = "visible";
     }
 

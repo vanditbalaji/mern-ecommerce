@@ -129,20 +129,6 @@ const ProductDetails = () => {
     <div className="bg-white">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
-          {/* <ol
-            role="list"
-            className="flex items-center max-w-2xl px-4 mx-auto space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
-          >
-            <li className="text-sm">
-              <a
-                href={product?.href}
-                aria-current="page"
-                className="font-medium text-gray-500 hover:text-gray-600"
-              >
-                {product?.title}
-              </a>
-            </li>
-          </ol> */}
         </nav>
         <div className="max-w-2xl mx-auto mt-6 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="hidden overflow-hidden rounded-lg aspect-h-4 aspect-w-3 lg:block">
@@ -286,7 +272,7 @@ const ProductDetails = () => {
                               size.inStock
                                 ? "cursor-pointer bg-white text-gray-900 shadow-sm"
                                 : "cursor-not-allowed bg-gray-50 text-gray-200",
-                              active ? "ring-2 ring-indigo-500" : "",
+                              active ? "ring-2 ring-black" : "",
                               "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
                             )
                           }
@@ -338,7 +324,7 @@ const ProductDetails = () => {
 
               <button
                 onClick={handleCart}
-                className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white border border-transparent rounded-md bg-stone-800 hover:bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white border border-transparent rounded-md bg-stone-800 hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
               >
                 Add to Cart
               </button>

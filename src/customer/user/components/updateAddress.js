@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import { updateUserDataAsync, updateUserProfileAsync } from "../usersSlice";
 const UpdateAddress = () => {
-  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  
+
   const id = location.state === null ? 0 : location.state;
   const user = useSelector((state) => state.userOrder?.userInfo);
   const address = user?.address;
@@ -20,7 +19,7 @@ const UpdateAddress = () => {
     setValue,
     formState: { errors },
   } = useForm();
-  
+
   useEffect(() => {
     const setAddress = address[id];
     setValue("fullname", setAddress.fullname);
@@ -39,7 +38,7 @@ const UpdateAddress = () => {
     dispatch(updateUserDataAsync({ ...user, address: [...updatedAddress] }));
     navigate("/profile");
   };
-  
+
   return (
     <div>
       <div className="lg:col-span-3 ">
@@ -223,7 +222,7 @@ const UpdateAddress = () => {
               </button>
               <button
                 type="submit"
-                className="px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-stone-800 hover:bg-green-500 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-stone-800 hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Update
               </button>
